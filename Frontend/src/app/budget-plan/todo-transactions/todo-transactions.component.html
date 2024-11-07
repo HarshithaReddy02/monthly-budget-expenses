@@ -1,0 +1,88 @@
+<div class="navbar">
+    <h2>TO DO TRANSACTIONS</h2>
+</div>
+
+
+<div class="main-container">
+    <div class="container">
+        <h2>To Do Transactions</h2>
+        <form [formGroup]="todoForm" class="input-form" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <select formControlName="month" id="month" class="form-control" (change)="onChange($event)">
+                    <option value="" disables>Select Month</option>
+                    <option value="January">January</option>
+                    <option value="February">February</option>
+                    <option value="March">March</option>
+                </select>
+            </div>
+            <div class="form-group">
+
+            </div>
+            <div class="total-income">
+                Total ToDo's for {{selectedMonth | titlecase}}: ${{totalTodo}}
+
+                <!-- Total Income for {{selectedMonth}}: ${{calculateTotalIncome(selectedMonth)}} -->
+            </div>
+            <div class="form-group">
+                <label>Transaction Type</label>
+                <input type="text" formControlName="expenseType" class="form-control" placeholder="Enter ExpenseType" [class.disabled-dropdowm]="!monthSelected"/>
+                <!-- <select formControlName="transactionType" id="investments" class="form-control"
+                    [class.disabled-dropdowm]="!monthSelected">
+                    <option value="" disabled>Select Investment</option>
+                    <option value="401(K)">401(K)</option>
+                    <option value="Stocks">Stocks</option>
+                    <option value="Real Estate">Real Estate</option>
+                </select> -->
+            </div>
+            <!-- <div class="form-group">
+                <label>Source of Income:</label>
+                <select formControlName="source" id="source" class="form-control"
+                    [class.disabled-dropdowm]="!monthSelected">
+                    <option value="" disabled>Select Source</option>
+                    <option value="401(K)">Salary</option>
+                    <option value="Stocks">Freelancing</option>
+                    <option value="Real Estate">Rental Income</option>
+                </select>
+            </div> -->
+            <div class="form-group">
+                <label>Amount:</label>
+                <input type="number" formControlName="expenseAmount" class="form-control" placeholder="Enter Amount"
+                    [class.disabled-dropdowm]="!monthSelected">
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary" (click)="onSubmit()"
+                [class.disabled-dropdowm]="!monthSelected">Add Transaction</button>
+            </div>
+            <div class="form-group">
+
+            </div>
+          
+        </form>
+        <hr>
+        <h3>Transaction List - {{selectedMonth | titlecase}}</h3>
+        <table class="table table-bordered">
+          <thead  class="table-secondary">
+            <tr>
+              <th>Transaction Type</th>
+              <th>Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let todoTrans of filteredTodo">
+                <td>{{todoTrans.expenseType}}</td>
+              <!-- <td [ngClass]="{'strikeout':todoTrans.selected}" (click)="toggleSelection(todoTrans)">{{todoTrans.expenseType}}</td> -->
+              <td>{{todoTrans.expenseAmount}}</td>
+            </tr>
+          </tbody>
+        </table>
+      
+        <div class="input-form">
+            <button class="btn btn-primary" (click)="onBack()">Back</button>
+            <div class="form-group">
+
+            </div>
+            <button class="btn btn-primary" (click)="saveForm()">Save</button>
+
+        </div>
+    </div>
+</div>

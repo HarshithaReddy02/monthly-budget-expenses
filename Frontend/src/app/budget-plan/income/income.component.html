@@ -1,0 +1,105 @@
+<div class="navbar">
+    <h2>INCOME</h2>
+</div>
+
+
+<div class="main-container">
+    <div class="container">
+        <h2>Income</h2>
+        <form [formGroup]="incomeForm" class="input-form">
+            <div class="form-group">
+                <select formControlName="month" id="month" class="form-control" (change)="onChange($event)">
+                    <option value="" disables>Select Month</option>
+                    <option value="January">January</option>
+                    <option value="February">February</option>
+                    <option value="March">March</option>
+                </select>
+            </div>
+            <div class="form-group">
+
+            </div>
+            <div class="total-income">
+                Total Income for {{selectedMonth | titlecase}}: ${{totalIncome}}
+
+                <!-- Total Income for {{selectedMonth}}: ${{calculateTotalIncome(selectedMonth)}} -->
+            </div>
+            <div class="form-group">
+                <label>Investments</label>
+                <select formControlName="investment" id="investment" class="form-control"
+                    [class.disabled-dropdowm]="!monthSelected">
+                    <option value="" disabled>Select Investment</option>
+                    <option value="401(K)">401(K)</option>
+                    <option value="Stocks">Stocks</option>
+                    <option value="Real Estate">Real Estate</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Source of Income:</label>
+                <select formControlName="source" id="source" class="form-control"
+                    [class.disabled-dropdowm]="!monthSelected">
+                    <option value="" disabled>Select Source</option>
+                    <option value="401(K)">Salary</option>
+                    <option value="Stocks">Freelancing</option>
+                    <option value="Real Estate">Rental Income</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Amount:</label>
+                <input type="number" formControlName="amount" class="form-control" placeholder="Enter Amount"
+                    [class.disabled-dropdowm]="!monthSelected">
+            </div>
+            <div class="form-group">
+
+            </div>
+            <div class="form-group">
+
+            </div>
+            <button type="submit" class="btn btn-primary" (click)="onSubmit()"
+                [class.disabled-dropdowm]="!monthSelected">Add</button>
+        </form>
+        <hr>
+        <h3>Income List - {{selectedMonth | titlecase}}</h3>
+        <table class="table table-bordered">
+            <thead class="table-secondary">
+                <tr>
+                    <th>Source of Income</th>
+                    <th>Amount</th>
+                    <th>Investments</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- <tr *ngFor="let income of filteredIncomes"> -->
+                <tr *ngFor="let income of filteredIncomes">
+                    <td>{{income.source}}</td>
+                    <td>{{income.amount}}</td>
+                    <td>{{income.investment}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- <h3>Income List - {{selectedMonth}}</h3>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Source of Income</th>
+                    <th>Amount</th>
+                    <th>Investments</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let income in getFilteredIncomes()">
+                    <td>{{income.source}}</td>
+                    <td>{{income.amount}}</td>
+                    <td>{{income.investments}}</td>
+                </tr>
+            </tbody>
+        </table> -->
+        <div class="input-form">
+            <button class="btn btn-primary" (click)="onBack()">Back</button>
+            <div class="form-group">
+
+            </div>
+            <button class="btn btn-primary" (click)="saveForm()">Save</button>
+
+        </div>
+    </div>
+</div>

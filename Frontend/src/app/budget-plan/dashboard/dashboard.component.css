@@ -1,0 +1,118 @@
+/* .container{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.card-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    width: calc(100%-40px);
+    max-width: 1200px;
+}
+.card{
+    position: relative;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
+    padding: 20px;
+    width: calc(50%-40px);
+    max-width: 400px;
+    transition: transform 0.3s ease;
+}
+
+.card:hover{
+    transform: translateY(-7px);
+    box-shadow: 0px 0px 20px rgba(0,0,0,0.2);
+}
+.card-header{
+    display: flex;
+    align-items: center;
+}
+
+.i{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 30%;
+    margin-right: 15px;
+} */
+
+
+
+
+
+
+
+h4{
+    font-size: 20px;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.card-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    width: calc(100%-40px);
+    max-width: 1200px;
+}
+.card{
+    position: relative;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
+    padding: 20px;
+    width: calc(50%-40px);
+    max-width: 400px;
+    transition: transform 0.3s ease;
+}
+
+.card:hover{
+    transform: translateY(-7px);
+    box-shadow: 0px 0px 20px rgba(0,0,0,0.2);
+}
+.card-header{
+    display: flex;
+    align-items: center;
+}
+
+.icon i {
+    color: #1b7e81;
+    font-size: 30px;
+}
+
+.income-details {
+    margin-top: 20px;
+}
+
+.income-details .month {
+    margin-bottom: 10px;
+}
+
+.button {
+    background:linear-gradient(135deg, #7e0a61,#a55cac);
+    color: white;
+    padding: 10px;
+    border-radius: 4px;
+    text-align: center;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+    .card {
+        max-width: 100%; 
+    }
+}
+
+ul{
+    list-style-type: none;
+}
