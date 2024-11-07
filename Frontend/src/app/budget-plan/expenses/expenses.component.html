@@ -1,0 +1,75 @@
+<div class="navbar">
+    <h2>EXPENSES</h2>
+</div>
+<div class="main-container">
+    <div class="container">
+        <h2>Expenses</h2>
+        <form [formGroup]="expenseForm" class="input-form" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <select formControlName="month" id="month" class="form-control" (change)="onChange($event)">
+                    <option value="" disables>Select Month</option>
+                    <option value="January">January</option>
+                    <option value="February">February</option>
+                    <option value="March">March</option>
+                </select>
+            </div>
+            <div class="form-group">
+
+            </div>
+            <div class="total-income">
+                Total Expenses for {{selectedMonth | titlecase}}: ${{totalExpenses}}
+
+            </div>
+            <div class="form-group">
+                <label>Expenses Type</label>
+                <select formControlName="type" id="investments" class="form-control"
+                    [class.disabled-dropdowm]="!monthSelected">
+                    <option value="" disabled>Select Expense Type</option>
+                    <option value="Rent">Rent</option>
+                    <option value="Groceries">Groceries</option>
+                    <option value="Utilities">Utilities</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Amount:</label>
+                <input type="number" formControlName="amount" class="form-control" placeholder="Enter Amount"
+                    [class.disabled-dropdowm]="!monthSelected">
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary" (click)="onSubmit()"
+                    [class.disabled-dropdowm]="!monthSelected">Add Expenses</button>
+            </div>
+            <div class="form-group">
+
+            </div>
+
+        </form>
+        <hr>
+        <h3>Expenses List - {{selectedMonth | titlecase}}</h3>
+        <table class="table table-bordered">
+            <thead class="table-secondary">
+                <tr>
+                    <th>Expenses Type</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- <tr *ngFor="let expense of filteredExpenses"> -->
+                <tr *ngFor="let expense of fetchexpenselist">
+                    <td>{{expense.type}}</td>
+                    <td>{{expense.amount}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class=" input-form">
+            <button class="btn btn-primary" (click)="onBack()">Back</button>
+            <div class="form-group">
+
+            </div>
+            <button class="btn btn-primary" (click)="saveForm()">Save</button>
+
+        </div>
+    </div>
+</div>

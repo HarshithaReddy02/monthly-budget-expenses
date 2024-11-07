@@ -1,0 +1,109 @@
+<app-side-nav></app-side-nav>
+<div class="container">
+    <div class="card-container">
+        <!-- income -->
+        <div class="card">
+            <div class="card-header">
+                <span class="icon income-icon">
+                    <i class="fa fa-money">
+                    </i>
+
+                </span>
+                <h4>Income</h4>
+            </div>
+            <hr>
+            <div class="income-details">
+                <h5>Last Few Months</h5>
+                <div class="month">
+                    <ul>
+                        <li *ngFor="let monthIncome of lastMonthIncome">{{monthIncome}}</li>
+                    </ul>
+                </div>
+                <div class="month">
+                    <h4>Current Month</h4>
+                    <p>{{currentMonthIncome}}</p>
+                </div>
+                <div class="button" (click)="onIncome()">View</div>
+            </div>
+        </div>
+        <!-- Expense -->
+        <div class="card">
+            <div class="card-header">
+                <span class="icon income-icon">
+                    <i class="fa fa-dollar ">
+                    </i>
+
+                </span>
+                <h4 class="ml-2">Expense</h4>
+            </div>
+            <hr>
+            <div class="income-details">
+                <h5>Last Few Months</h5>
+
+                <div class="month">
+                    <ul>
+                        <li *ngFor="let monthExpense of lastMonthExpence">{{monthExpense}}</li>
+                    </ul>
+                </div>
+                <div class="month">
+                    <h4>Current Month</h4>
+                    <p>{{currentExpence}}</p>
+                </div>
+                <div class="button" (click)="onExpense()">View</div>
+            </div>
+        </div>
+        <!-- third -->
+
+        <!-- fourth -->
+        <div class="card">
+            <div class="card-header">
+                <span class="icon income-icon">
+                    <i class="fa fa-money">
+                    </i>
+
+                </span>
+                <h4>To Do Transaction</h4>
+            </div>
+            <hr>
+            <div class="income-details">
+                <div class="month">
+                    <ul>
+                        <li *ngFor="let todo of todoTRansactions">{{todo.description}}</li>
+                    </ul>
+                </div>
+                <!-- <div class="month">
+                    <h4>Current Month</h4>
+                    <p>{{currentExpence}}</p>
+                </div> -->
+                <div class="button" (click)="onExpense()">View</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <span class="icon income-icon">
+                    <i class="fa fa-total">
+                    </i>
+
+                </span>
+                <h4>Total Income</h4>
+            </div>
+            <hr>
+            <div class="total-details">
+                <div class="total-item">
+                    <h4>Current Month Income</h4>
+                    <p>{{totalCurrentMonthIncome |currency}}</p>
+                </div>
+                <div class="total-item">
+                    <h4>Current Month Expenses</h4>
+                    <p>{{totalCurrentMonthExpense |currency}}</p>
+                </div>
+                <hr>
+                <div class="total-item">
+                    <span class="icon trans-icon"></span>
+                    <h4>Current Month Savings</h4>
+                    <p>{{currentMonthSavings |currency}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
